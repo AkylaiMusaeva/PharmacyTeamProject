@@ -1,3 +1,7 @@
+package model;
+
+import model.Medicine;
+
 import java.util.List;
 
 public class Pharmacy {
@@ -60,7 +64,7 @@ public class Pharmacy {
 
     @Override
     public String toString() {
-        return "Pharmacy{" +
+        return "model.Pharmacy{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +

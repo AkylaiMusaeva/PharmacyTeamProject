@@ -1,3 +1,5 @@
+package model;
+
 public class Medicine {
     private Long id;
     private  String name;
@@ -48,7 +50,7 @@ public class Medicine {
 
     @Override
     public String toString() {
-        return "Medicine{" +
+        return "model.Medicine{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +
