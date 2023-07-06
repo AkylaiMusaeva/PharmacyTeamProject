@@ -1,5 +1,7 @@
 package model;
 
+import enums.Gender;
+
 import javax.xml.crypto.Data;
 
 public class Worker {
