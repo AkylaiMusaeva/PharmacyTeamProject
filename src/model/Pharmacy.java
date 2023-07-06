@@ -64,12 +64,12 @@ public class Pharmacy {
 
     @Override
     public String toString() {
-        return "model.Pharmacy{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", medicines=" + medicines +
-                ", workers=" + workers +
-                '}';
+        return "-----Pharmacy-----{" +
+                "id:" + id +
+                "name:" + name + '\'' +
+                "address:" + address + '\'' +
+                "medicines:" + medicines +
+                "workers:" + workers +"/n";
+
     }
 }
