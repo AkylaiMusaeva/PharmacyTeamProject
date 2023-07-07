@@ -2,6 +2,7 @@ package serviceImpl;
 
 import db.DataBase;
 import model.Medicine;
+import model.Pharmacy;
 import model.Worker;
 import service.Service;
 
@@ -15,11 +16,22 @@ public class ServiceImpl implements Service {
 
     @Override
     public void getAllMedicinesByPharmacy(String pharmacyName) {
+        dataBase.getPharmacies().stream()
+                .filter(pharmacy -> pharmacy.getName().equals(pharmacyName))
+                .forEach(System.out::println);
 
     }
 
     @Override
     public void addMedicinesToPharmacy(Long pharmacyId, Medicine medicine) {
+        for (Pharmacy p:dataBase.getPharmacies()){
+            if (p.getId().equals(pharmacyId)){
+                p.getMedicines().add(medicine);
+                System.out.println(p);
+            }
+        }
+        System.out.println("Medicine succesfully added to Pharmasy");
+
 
     }
 
