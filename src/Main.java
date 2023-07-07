@@ -51,6 +51,7 @@ public class Main {
                     service.deleteMedicineByName(pharmacyId, medicineName);
                 }
             }
+
         }
     }
 }
