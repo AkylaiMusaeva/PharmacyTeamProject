@@ -40,6 +40,16 @@ public class Main {
         Scanner scanNum=new Scanner(System.in);
         int num;
         while (true){
+            System.out.println("""
+                    1-> getAllMedicinesByPharmacy
+                    2-> addMedicinesToPharmacy
+                    3-> addWorkerToPharmacy
+                    4-> updateMedicinePrice
+                    5-> deleteMedicineByName
+                    6-> deleteWorkerByName
+                    7-> getPharmacyByWorkerName
+                    8-> getAllMedicines
+                    """);
             switch (num=scanNum.nextInt()){
                 case 1-> service.getAllMedicinesByPharmacy("Neman");
                 case 2-> { service.addMedicinesToPharmacy(3L,new Medicine(1L,"Trimol", 120,10));}
@@ -74,13 +84,6 @@ public class Main {
             }
 
         }
-
-
-
-
-
-
-
 
 
 
