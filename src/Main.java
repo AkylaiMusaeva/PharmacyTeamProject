@@ -1,10 +1,13 @@
+import db.DataBase;
 import enums.Gender;
 import model.Pharmacy;
 import model.Worker;
+import serviceImpl.ServiceImpl;
 
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -21,6 +24,21 @@ public class Main {
         Worker worker8=new Worker(8L,"",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
         Worker worker9=new Worker(9L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
         Worker worker10=new Worker(10L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
+
+        DataBase dataBase=new DataBase();
+        ServiceImpl service=new ServiceImpl(dataBase);
+        Scanner scanWord=new Scanner(System.in);
+        Scanner scanNum=new Scanner(System.in);
+        int num;
+        while (true){
+            switch (num=scanNum.nextInt()){
+                case 1-> System.out.println("");
+            }
+        }
+
+
+
+
 
 
 
