@@ -2,6 +2,7 @@ package serviceImpl;
 
 import db.DataBase;
 import model.Medicine;
+import model.Pharmacy;
 import model.Worker;
 import service.Service;
 
@@ -25,7 +26,12 @@ public class ServiceImpl implements Service {
 
     @Override
     public void addWorkerToPharmacy(Long pharmacyId, Worker worker) {
+        for (Pharmacy p:dataBase.getPharmacies()) {
+            if (p.getId().equals(pharmacyId)){
+                p.getWorkers().add(worker);
 
+            }
+        }System.out.println("Successfully added worker to pharmacy");
     }
 
     @Override
