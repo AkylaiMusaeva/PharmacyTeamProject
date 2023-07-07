@@ -6,6 +6,7 @@ import serviceImpl.ServiceImpl;
 
 import javax.xml.crypto.Data;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -25,6 +26,13 @@ public class Main {
         Worker worker9=new Worker(9L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
         Worker worker10=new Worker(10L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
 
+        Pharmacy pharmacy1 = new Pharmacy(1L, "Neman", "Manasa 42", new ArrayList<>(), new ArrayList<>());
+        Pharmacy pharmacy2 = new Pharmacy(2L, "Doctorin", "Sovetskaya 187", new ArrayList<>(), new ArrayList<>());
+        Pharmacy pharmacy3 = new Pharmacy(3L, "Aibolit", "Orozbekova 26", new ArrayList<>(), new ArrayList<>());
+        Pharmacy pharmacy4 = new Pharmacy(4L, "Neman", "Manasa 42", new ArrayList<>(), new ArrayList<>());
+        Pharmacy pharmacy5 = new Pharmacy(5L, "FarmService", "Ahunbaeva 197", new ArrayList<>(), new ArrayList<>());
+
+
         DataBase dataBase=new DataBase();
         ServiceImpl service=new ServiceImpl(dataBase);
         Scanner scanWord=new Scanner(System.in);
@@ -33,6 +41,7 @@ public class Main {
         while (true){
             switch (num=scanNum.nextInt()){
                 case 1-> service.getAllMedicinesByPharmacy("Neman");
+                case 3->service.addWorkerToPharmacy(1L,worker1);
                 case 5 -> {
                     System.out.println("Method delete medicine by name");
                     System.out.println("write the Pharmacy id ");
