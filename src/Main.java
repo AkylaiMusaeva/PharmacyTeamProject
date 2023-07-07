@@ -32,7 +32,7 @@ public class Main {
         int num;
         while (true){
             switch (num=scanNum.nextInt()){
-                case 1-> System.out.println("");
+                case 1-> service.getAllMedicinesByPharmacy("Neman");
                 case 5 -> {
                     System.out.println("Method delete medicine by name");
                     System.out.println("write the Pharmacy id ");
@@ -41,6 +41,7 @@ public class Main {
                     String medicineName = new Scanner(System.in).nextLine();
                     service.deleteMedicineByName(pharmacyId, medicineName);
                 }
+                
             }
 
         }
