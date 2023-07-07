@@ -9,6 +9,7 @@ import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -27,14 +28,20 @@ public class Main {
         Worker worker9=new Worker(9L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
         Worker worker10=new Worker(10L,"Asylbek",LocalDate.of(1993,9,19),"asylbek@gmail.com",Gender.MALE);
 
-        Pharmacy pharmacy1 = new Pharmacy(1L, "Neman", "Manasa 42", new ArrayList<>(), new ArrayList<>());
+        Medicine medicine1=new Medicine(1L,"Trimol",250,46);
+        Medicine medicine2=new Medicine(2L,"Aler G",340,50);
+        Medicine medicine3=new Medicine(3L,"Tailol Hot",100,20);
+        Medicine medicine4=new Medicine(4L,"Panangin",390,15);
+        Medicine medicine5=new Medicine(5L,"Paramol",230,48);
+
+        Pharmacy pharmacy1 = new Pharmacy(1L, "Neman", "Manasa 42", List.of(medicine1,medicine2), List.of(worker1,worker2));
         Pharmacy pharmacy2 = new Pharmacy(2L, "Doctorin", "Sovetskaya 187", new ArrayList<>(), new ArrayList<>());
         Pharmacy pharmacy3 = new Pharmacy(3L, "Aibolit", "Orozbekova 26", new ArrayList<>(), new ArrayList<>());
         Pharmacy pharmacy4 = new Pharmacy(4L, "Neman", "Manasa 42", new ArrayList<>(), new ArrayList<>());
         Pharmacy pharmacy5 = new Pharmacy(5L, "FarmService", "Ahunbaeva 197", new ArrayList<>(), new ArrayList<>());
+        List<Pharmacy>pharmacies=List.of(pharmacy1,pharmacy2,pharmacy3,pharmacy4,pharmacy5);
 
-
-        DataBase dataBase=new DataBase();
+        DataBase dataBase=new DataBase(pharmacies);
         ServiceImpl service=new ServiceImpl(dataBase);
         Scanner scanWord=new Scanner(System.in);
         Scanner scanNum=new Scanner(System.in);
@@ -52,9 +59,9 @@ public class Main {
                     """);
             switch (num=scanNum.nextInt()){
                 case 1-> service.getAllMedicinesByPharmacy("Neman");
-                case 2-> { service.addMedicinesToPharmacy(3L,new Medicine(1L,"Trimol", 120,10));}
-                case 3->service.addWorkerToPharmacy(1L,worker1);
-                case 4->service.updateMedicinePrice(3L,1L,150);
+                case 2-> { service.addMedicinesToPharmacy(3L,new Medicine(6L,"Trimol", 120,10));}
+                case 3->service.addWorkerToPharmacy(3L,worker3);
+                case 4->service.updateMedicinePrice(3L,6L,150);
                 case 5 -> {
                     System.out.println("Method delete medicine by name");
                     System.out.println("write the Pharmacy id ");
@@ -84,6 +91,7 @@ public class Main {
             }
 
         }
+
 
 
 

@@ -50,7 +50,7 @@ public class Medicine {
 
     @Override
     public String toString() {
-        return "model.Medicine{" +
+        return "\nMedicine{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", price=" + price +

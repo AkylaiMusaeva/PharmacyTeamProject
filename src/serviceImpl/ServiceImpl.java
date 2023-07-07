@@ -19,9 +19,10 @@ public class ServiceImpl implements Service {
 
     @Override
     public void getAllMedicinesByPharmacy(String pharmacyName) {
-        dataBase.getPharmacies().stream()
+        List<Pharmacy> list =dataBase.getPharmacies().stream()
                 .filter(pharmacy -> pharmacy.getName().equals(pharmacyName))
-                .forEach(System.out::println);
+                .toList();
+        System.out.println(list.get(0).getMedicines());
 
     }
 
@@ -30,10 +31,10 @@ public class ServiceImpl implements Service {
         for (Pharmacy p:dataBase.getPharmacies()){
             if (p.getId().equals(pharmacyId)){
                 p.getMedicines().add(medicine);
-                System.out.println(p);
-            }
+
+            }System.out.println(p);
         }
-        System.out.println("Medicine succesfully added to Pharmasy");
+        System.out.println("Medicine successfully added to Pharmasy");
 
 
     }
@@ -45,7 +46,7 @@ public class ServiceImpl implements Service {
             for (Pharmacy p : dataBase.getPharmacies()) {
                 if (p.getId().equals(pharmacyId)) {
                     found=true;
-                    p.getWorkers().add(worker);
+                    p.setWorker(worker);
                 }
             }if (!found){
                 throw new MyException("There is no such pharmacy with such id");
@@ -69,16 +70,20 @@ public class ServiceImpl implements Service {
 
     @Override
     public void deleteMedicineByName(Long pharmacyId, String medicineName) {
-        for (Pharmacy p:dataBase.getPharmacies()) {
-            if (p.getId().equals(pharmacyId)){
-                for (Medicine m:p.getMedicines()) {
-                    if (m.getName().equals(medicineName)){
-                        p.getMedicines().remove(m);
-                        System.out.println("Successfully deleted medicine by name");
-                    }
-                }
-            }
-        }
+//        for (Pharmacy p:dataBase.getPharmacies()) {
+//            if (p.getId().equals(pharmacyId)){
+//                for (Medicine m:p.getMedicines()) {
+//                    if (m.getName().equals(medicineName)){
+//                        p.getMedicines().remove(m);
+//                        System.out.println("Successfully deleted medicine by name");
+//                    }
+//                }
+//            }
+//        }
+        List<Pharmacy> list = dataBase.getPharmacies()
+                .stream()
+                .filter(pharmacy -> pharmacy.getId().equals(pharmacyId)).toList();
+        list.get(0).getMedicines().removeIf(medicine -> medicine.getName().equalsIgnoreCase(medicineName));
     }
 
     @Override
@@ -91,12 +96,20 @@ public class ServiceImpl implements Service {
 
     @Override
     public void getPharmacyByWorkerName(String workerName) {
-        List<Pharmacy> pharmacies = dataBase.getPharmacies();
-        pharmacies.stream()
-                .filter(pharmacy -> pharmacy.getWorkers().stream()
-                        .anyMatch(worker -> worker.getName().equals(workerName)))
-                .findFirst()
-                .orElse(null);
+//        List<Pharmacy> pharmacies = dataBase.getPharmacies();
+//        pharmacies.stream()
+//                .filter(pharmacy -> pharmacy.getWorkers().stream()
+//                        .anyMatch(worker -> worker.getName().equals(workerName)))
+//                .findFirst()
+//                .orElse(null);
+        for (Pharmacy p : dataBase.getPharmacies()) {
+            for (Worker w : p.getWorkers()) {
+                if (w.getName().equals(workerName)) {
+                    System.out.println("This worker is working in pharmacy: " + p.getName());
+
+                }
+            }
+        }
     }
 
     @Override

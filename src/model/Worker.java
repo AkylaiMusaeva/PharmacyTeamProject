@@ -66,7 +66,7 @@ public class Worker {
 
     @Override
     public String toString() {
-        return "model.Worker{" +
+        return "\nWorker{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +

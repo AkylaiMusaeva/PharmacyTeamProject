@@ -2,6 +2,7 @@ package model;
 
 import model.Medicine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pharmacy {
@@ -61,16 +62,22 @@ public class Pharmacy {
     public void setWorkers(List<Worker> workers) {
         this.workers = workers;
     }
+    public void setWorker(Worker worker){
+        if(this.workers==null) {
+            this.workers=new ArrayList<>();
+        }
+        this.workers.add(worker);
+    }
 //createDataBaseClassAndPackage
 
     @Override
     public String toString() {
         return "-----Pharmacy-----{" +
-                "id:" + id +
-                "name:" + name + '\'' +
-                "address:" + address + '\'' +
-                "medicines:" + medicines +
-                "workers:" + workers +"/n";
+                "\nid:" + id +
+                "\nname:" + name + '\'' +
+                "\naddress:" + address + '\'' +
+                "\nmedicines:" + medicines +
+                "\nworkers:" + workers +"\n";
 
     }
 }
