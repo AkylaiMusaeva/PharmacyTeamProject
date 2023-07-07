@@ -41,7 +41,14 @@ public class Main {
                     String medicineName = new Scanner(System.in).nextLine();
                     service.deleteMedicineByName(pharmacyId, medicineName);
                 }
-                
+                case 6->{
+                    System.out.println("Delete worker by name");
+                    System.out.println("write the pharmacy's id");
+                    Long pharmacyId=new Scanner(System.in).nextLong();
+                    System.out.println("write the worker's name");
+                    String workerName=new Scanner(System.in).nextLine();
+                    service.deleteWorkerByName(pharmacyId,workerName);
+                }
             }
 
         }
