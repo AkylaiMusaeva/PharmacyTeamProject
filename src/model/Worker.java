@@ -1,3 +1,7 @@
+package model;
+
+import enums.Gender;
+
 import javax.xml.crypto.Data;
 
 public class Worker {
@@ -60,7 +64,7 @@ public class Worker {
 
     @Override
     public String toString() {
-        return "Worker{" +
+        return "model.Worker{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
