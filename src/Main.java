@@ -33,7 +33,16 @@ public class Main {
         while (true){
             switch (num=scanNum.nextInt()){
                 case 1-> System.out.println("");
+                case 5 -> {
+                    System.out.println("Method delete medicine by name");
+                    System.out.println("write the Pharmacy id ");
+                    Long pharmacyId = new Scanner(System.in).nextLong();
+                    System.out.println("Write the Medicine name");
+                    String medicineName = new Scanner(System.in).nextLine();
+                    service.deleteMedicineByName(pharmacyId, medicineName);
+                }
             }
+
         }
 
 
