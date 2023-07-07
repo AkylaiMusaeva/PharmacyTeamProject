@@ -83,7 +83,12 @@ public class ServiceImpl implements Service {
 
     @Override
     public void getPharmacyByWorkerName(String workerName) {
-
+        List<Pharmacy> pharmacies = dataBase.getPharmacies();
+        pharmacies.stream()
+                .filter(pharmacy -> pharmacy.getWorkers().stream()
+                        .anyMatch(worker -> worker.getName().equals(workerName)))
+                .findFirst()
+                .orElse(null);
     }
 
     @Override
