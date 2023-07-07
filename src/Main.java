@@ -49,6 +49,12 @@ public class Main {
                     String workerName=new Scanner(System.in).nextLine();
                     service.deleteWorkerByName(pharmacyId,workerName);
                 }
+                case 7->{
+                    System.out.println("Get Pharmacy by worker by name");
+                    System.out.println("Write the worker's name");
+                    String workerName=new Scanner(System.in).nextLine();
+                    service.getPharmacyByWorkerName(workerName);
+                }
             }
 
         }
