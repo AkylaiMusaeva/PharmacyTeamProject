@@ -44,6 +44,7 @@ public class Main {
                 case 1-> service.getAllMedicinesByPharmacy("Neman");
                 case 2-> { service.addMedicinesToPharmacy(3L,new Medicine(1L,"Trimol", 120,10));}
                 case 3->service.addWorkerToPharmacy(1L,worker1);
+
                 case 5 -> {
                     System.out.println("Method delete medicine by name");
                     System.out.println("write the Pharmacy id ");
@@ -63,6 +64,7 @@ public class Main {
             }
 
         }
+
 
 
 
