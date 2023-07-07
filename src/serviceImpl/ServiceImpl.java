@@ -101,6 +101,9 @@ public class ServiceImpl implements Service {
 
     @Override
     public void getAllMedicines() {
-
+        List<Pharmacy> pharmacies = dataBase.getPharmacies();
+        for (Pharmacy p : pharmacies) {
+            System.out.println(p.getMedicines());
+        }
     }
 }
