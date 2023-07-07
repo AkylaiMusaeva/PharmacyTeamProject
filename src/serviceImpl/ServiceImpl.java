@@ -64,7 +64,10 @@ public class ServiceImpl implements Service {
 
     @Override
     public void deleteWorkerByName(Long pharmacyId, String workerName) {
-
+        List<Pharmacy> list = dataBase.getPharmacies().stream().filter(pharmacy -> pharmacy.getId().equals(pharmacyId)).toList();
+        List<Worker> list1 = list.get(0).getWorkers().stream().filter(worker -> worker.getName().equals(workerName)).toList();
+        list.get(0).getWorkers().remove(list1.get(0));
+        System.out.println("Successfully deleted worker");
     }
 
     @Override
