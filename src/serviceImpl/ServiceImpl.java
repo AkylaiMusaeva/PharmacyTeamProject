@@ -6,6 +6,8 @@ import model.Pharmacy;
 import model.Worker;
 import service.Service;
 
+import java.util.List;
+
 public class ServiceImpl implements Service {
 
     private DataBase dataBase;
@@ -36,7 +38,14 @@ public class ServiceImpl implements Service {
 
     @Override
     public void updateMedicinePrice(Long pharmacyId, Long medicineId, int price) {
-
+        List<Pharmacy> list = dataBase.getPharmacies()
+                .stream()
+                .filter(pharmacy -> pharmacy.getId().equals(pharmacyId)).toList();
+        List<Medicine> list1 = list.get(0).getMedicines()
+                .stream()
+                .filter(medicine -> medicine.getId().equals(medicineId)).toList();
+        list1.get(0).setPrice(price);
+        System.out.println("successfully updated medicine's price");
     }
 
     @Override
