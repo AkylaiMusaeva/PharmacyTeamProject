@@ -32,7 +32,8 @@ public class Main {
         int num;
         while (true){
             switch (num=scanNum.nextInt()){
-                case 1-> System.out.println("");
+                case 1-> service.getAllMedicinesByPharmacy("Neman");
+
             }
         }
 
