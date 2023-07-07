@@ -67,6 +67,10 @@ public class Main {
                     String workerName=new Scanner(System.in).nextLine();
                     service.getPharmacyByWorkerName(workerName);
                 }
+                case 8->{
+                    System.out.println("All medicines");
+                    service.getAllMedicines();
+                }
             }
 
         }
