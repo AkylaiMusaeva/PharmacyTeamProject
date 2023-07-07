@@ -51,6 +51,7 @@ public class ServiceImpl implements Service {
     @Override
     public void deleteMedicineByName(Long pharmacyId, String medicineName) {
 
+
     }
 
     @Override
