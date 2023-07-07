@@ -1,6 +1,7 @@
 package serviceImpl;
 
 import db.DataBase;
+import exception.MyException;
 import model.Medicine;
 import model.Pharmacy;
 import model.Worker;
@@ -39,12 +40,19 @@ public class ServiceImpl implements Service {
 
     @Override
     public void addWorkerToPharmacy(Long pharmacyId, Worker worker) {
-        for (Pharmacy p:dataBase.getPharmacies()) {
-            if (p.getId().equals(pharmacyId)){
-                p.getWorkers().add(worker);
-
+        boolean found=false;
+        try {
+            for (Pharmacy p : dataBase.getPharmacies()) {
+                if (p.getId().equals(pharmacyId)) {
+                    found=true;
+                    p.getWorkers().add(worker);
+                }
+            }if (!found){
+                throw new MyException("There is no such pharmacy with such id");
             }
-        }System.out.println("Successfully added worker to pharmacy");
+        }catch (MyException e){
+            System.out.println(e.getMessage());
+        }System.err.println("Successfully added worker to pharmacy");
     }
 
     @Override
