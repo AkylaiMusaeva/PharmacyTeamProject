@@ -70,6 +70,7 @@ public class Main {
                 case 8->{
                     System.out.println("All medicines");
                     service.getAllMedicines();
+
                 }
             }
 
